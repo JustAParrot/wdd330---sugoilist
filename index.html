@@ -1,0 +1,28 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>SugoiList — Anime Search</title>
+</head>
+
+<body>
+    <header>
+        <h1>SugoiList</h1>
+        <form id="search-form" autocomplete="off">
+            <label for="q">Search anime</label>
+            <input id="q" name="q" type="search" placeholder="Search by title…" required />
+            <button type="submit">Search</button>
+        </form>
+    </header>
+
+    <main>
+        <p id="status" aria-live="polite"></p>
+        <ul id="results" aria-label="Anime results"></ul>
+    </main>
+
+    <script type="module" src="./js/main.mjs"></script>
+</body>
+
+</html>
