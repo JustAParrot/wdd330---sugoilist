@@ -21,3 +21,24 @@ export function animeCardTemplate(anime) {
     </li>
   `;
 }
+
+export function detailTemplate(anime) {
+  const img = getAnimeImage(anime);
+  const title = anime.title_english || anime.title;
+  const score = anime.score ?? "—";
+  const episodes = anime.episodes ?? "—";
+  const synopsis = anime.synopsis ?? "No synopsis available.";
+
+  return `
+    <section class="anime-detail-card">
+      <img src="${img}" alt="${title}" />
+      <div>
+        <h2>${title}</h2>
+        <p><strong>Score:</strong> ${score}</p>
+        <p><strong>Episodes:</strong> ${episodes}</p>
+        <p>${synopsis}</p>
+        <button data-watchlist-btn>Add to Watchlist</button>
+      </div>
+    </section>
+  `;
+}

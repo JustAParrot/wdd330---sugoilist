@@ -1,20 +1,20 @@
 <!doctype html>
 <html lang="en">
-
 <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width,initial-scale=1" />
-    <title>SugoiList — Anime</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>SugoiList — Anime Details</title>
 </head>
-
 <body>
-    <header>
-        <a href="./index.html">← Back</a>
-        <h1>Anime Details</h1>
-    </header>
-    <main>
-        <p>Detail view coming in Week 6.</p>
-    </main>
-</body>
+  <header>
+    <a href="./index.html">← Back</a>
+    <h1 id="anime-title">Loading…</h1>
+  </header>
 
+  <main id="anime-detail">
+    <p id="detail-status" aria-live="polite"></p>
+  </main>
+
+  <script type="module" src="./js/anime.mjs"></script>
+</body>
 </html>
