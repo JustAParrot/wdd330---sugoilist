@@ -22,7 +22,7 @@ async function loadDetails(id, type) {
   try {
     if (type === "anime") {
       const anime = await getAnimeById(id);
-      if (!anime) { setStatus(statusEl, "Anime not found."); return; }
+      if (!anime) { setStatus(statusEl, "Anime not found D:"); return; }
 
       titleEl.textContent = `${anime.title_english || anime.title} (Anime)`;
       detailContainer.innerHTML = detailTemplate(anime);
