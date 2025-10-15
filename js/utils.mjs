@@ -14,7 +14,6 @@ export function renderListWithTemplate(templateFn, parent, list = []) {
 
 // Get images from Jikan
 export function getAnimeImage(anime, fallback = "/images/fallback.png") {
-    // Jikan images can be jpg/webp; prefer jpg.large_image_url, fall back gracefully
     return (
         anime?.images?.jpg?.large_image_url ||
         anime?.images?.jpg?.image_url ||

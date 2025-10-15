@@ -5,16 +5,26 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width,initial-scale=1" />
     <title>SugoiList — Anime Search</title>
+    <link rel="stylesheet" href="./styles/main.css">
 </head>
 
 <body>
     <header>
         <h1>SugoiList</h1>
         <form id="search-form" autocomplete="off">
-            <label for="q">Search anime</label>
+            <label for="q">Search</label>
             <input id="q" name="q" type="search" placeholder="Search by title…" required />
             <button type="submit">Search</button>
         </form>
+
+        <div id="search-type-toggle">
+            <button data-type="anime" class="active">Anime</button>
+            <button data-type="manga">Manga</button>
+        </div>
+
+        <nav>
+            <a href="./watchlist.html">Watchlist</a>
+        </nav>
     </header>
 
     <main>

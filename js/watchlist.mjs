@@ -1,6 +1,5 @@
 const STORAGE_KEY = "sugoi_watchlist";
 
-//Get current list from localStorage
 export function getWatchlist() {
   try {
     const raw = localStorage.getItem(STORAGE_KEY);
@@ -10,32 +9,30 @@ export function getWatchlist() {
   }
 }
 
-// Save list to local
 function saveWatchlist(list) {
   localStorage.setItem(STORAGE_KEY, JSON.stringify(list));
 }
 
-// Add anime to watchlist (if not already there ofc)
-export function addToWatchlist(anime) {
+export function addToWatchlist(item) {
   const list = getWatchlist();
-  if (!list.find(a => a.mal_id === anime.mal_id)) {
+  if (!list.find(a => String(a.mal_id) === String(item.mal_id))) {
     list.push({
-      mal_id: anime.mal_id,
-      title: anime.title_english || anime.title,
-      image: anime.images?.jpg?.image_url || anime.images?.webp?.image_url,
-      score: anime.score,
-      episodes: anime.episodes,
+      mal_id: item.mal_id,
+      title: item.title_english || item.title,
+      image: item.images?.jpg?.image_url || item.images?.webp?.image_url || item.image,
+      score: item.score ?? item.score ?? "—",
+      episodes: item.episodes ?? item.episodes ?? "—",
+      type: item.type || "anime",
     });
     saveWatchlist(list);
   }
 }
 
 export function isInWatchlist(id) {
-  return getWatchlist().some(a => a.mal_id == id);
+  return getWatchlist().some(a => String(a.mal_id) === String(id));
 }
 
-//Remove anime by id 
 export function removeFromWatchlist(id) {
-  const list = getWatchlist().filter(a => a.mal_id != id);
+  const list = getWatchlist().filter(a => String(a.mal_id) !== String(id));
   saveWatchlist(list);
 }
