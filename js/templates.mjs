@@ -52,6 +52,27 @@ export function mangaCardTemplate(manga) {
   `;
 }
 
+export function detailTemplate(anime) {
+  const img = anime.images?.jpg?.large_image_url || anime.images?.jpg?.image_url || "/images/fallback.png";
+  const title = anime.title_english || anime.title || "Untitled";
+  const score = anime.score ?? "—";
+  const episodes = anime.episodes ?? "—";
+  const synopsis = anime.synopsis ?? "";
+
+  return `
+    <section class="anime-detail-card">
+      <img src="${img}" alt="${title}" />
+      <div>
+        <h2>${title}</h2>
+        <p><strong>Episodes:</strong> ${episodes}</p>
+        <p><strong>Score:</strong> ${score}</p>
+        <p>${synopsis}</p>
+        <button data-watchlist-btn>Add to Watchlist</button>
+      </div>
+    </section>
+  `;
+}
+
 /* tiny helper to avoid breaking HTML with quotes */
 function escapeHtml(str = "") {
   return String(str).replace(/&/g, "&amp;").replace(/</g, "&lt;")
